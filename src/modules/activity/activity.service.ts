@@ -1,10 +1,12 @@
+import type { Prisma } from "@prisma/client";
+
 import { db } from "@/lib/db";
 
 type LogActivityInput = {
   agencyId: string;
   actorId: string;
   action: string;
-  metadata?: Record<string, unknown>;
+  metadata?: Prisma.InputJsonValue;
 };
 
 export async function logActivity(input: LogActivityInput) {
